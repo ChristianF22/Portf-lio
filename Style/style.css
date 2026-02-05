@@ -5,21 +5,22 @@
 }
 
 :root{
-    --dark:#181717;
+    --dark: #181717;
     --primary: #cf8650;
     --dark-gray: #5e5a58;
-    --liht-gray: #848482;
+    --light-gray: #848482;
     --gray: #7c7c7c;
     --light: white;
 }
 
 body{
+    max-height: 100vh;
     height: 100vh;
     color: var(--light);
     background-color: var(--dark);
     font-family: sans-serif;
     display: flex;
-}
+}   
 
 header{
     position: fixed;
@@ -30,19 +31,20 @@ header{
     display: flex;
     justify-content: center;
     margin: 2rem 0;
-    border-radius: 4rem;
+    border-radius: 10rem;
+    z-index: 100;
 }
 
-.head-container{
-   display: flex;
-   align-items: center;
-   justify-content: center;
+.header-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header nav{
-   display: flex;
-   align-items: center;
-   gap: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 header nav a{
@@ -63,33 +65,43 @@ header nav a:hover{
     z-index: -100;
     border-radius: 5rem;
     left: 2.7rem;
-    transition: 0.5s;
+    transition: 0.5s
 }
 
 main{
-    height: 100%;
+    flex:1;
+    overflow-y: hidden;
     display: flex;
-    overflow: hidden;
 }
 
+
 .main-container{
-    display: flex;
+    flex: 1;
+    display: flex;  
 }
 
 section{
     width: 100vw;
-    flex: 1;
-}
-
-
-#home{
-    height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
 }
 
 .home-container{
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 10rem;
+}
+
+.right{
+    text-align: end;
+    font-size: 1.5rem;
+}
+
+h1{
+   color: var(--primary);
 }
