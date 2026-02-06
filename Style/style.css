@@ -54,10 +54,6 @@ header nav a {
     transition: 0.5s;
 }
 
-header nav a:hover {
-    color: var(--primary);
-}
-
 .select {
     position: absolute;
     background-color: var(--primary);
