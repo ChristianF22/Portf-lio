@@ -100,5 +100,5 @@ const interval = setInterval(() => {
             }, 400);
         }, 200);
     }
-}, 70);
+}, 60);
 
