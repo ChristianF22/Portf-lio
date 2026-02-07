@@ -76,3 +76,29 @@ function nextNav(type) {
             break;
     }
 }
+
+const loading = document.getElementById('loading');
+const bar = document.querySelector('.loading-progress');
+const percent = document.getElementById('loading-percent');
+
+let progress = 0;
+
+const interval = setInterval(() => {
+    progress++;
+    bar.style.width = progress + '%';
+    percent.innerText = progress + '%';
+
+    if (progress >= 100) {
+        clearInterval(interval);
+
+        setTimeout(() => {
+            loading.style.opacity = '0';
+            loading.style.transition = 'opacity 0.4s';
+
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 400);
+        }, 200);
+    }
+}, 70);
+
