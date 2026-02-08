@@ -14,6 +14,12 @@ window.addEventListener('load', () => {
                 clearInterval(interval);
                 setTimeout(() => {
                     loader.classList.add('loader-hidden');
+
+                    
+                    setTimeout(() => {
+                        startTypingAnimation();
+                    }, 500);
+
                     loader.addEventListener('transitionend', () => {
                         if (loader.parentNode) {
                             loader.parentNode.removeChild(loader);
@@ -21,9 +27,117 @@ window.addEventListener('load', () => {
                     });
                 }, 200);
             }
-        }, 20);
+        }, 50);
     }
 });
+
+function startTypingAnimation() {
+    const elementsToType = document.querySelectorAll('.animate-text');
+
+    function processNext(index) {
+        if (index >= elementsToType.length) {
+            const buttons = document.querySelector('.hero-buttons');
+            if (buttons) {
+                buttons.style.opacity = '1';
+                buttons.style.transform = 'translateY(0)';
+            }
+            return;
+        }
+
+        const element = elementsToType[index];
+
+        typeWriter(element, () => {
+            element.classList.remove('typing-cursor');
+            processNext(index + 1);
+        });
+    }
+
+    elementsToType.forEach(el => {
+        if (!el.hasAttribute('data-typing-initialized')) {
+            el.dataset.originalHtml = el.innerHTML;
+            el.innerHTML = '';
+            el.setAttribute('data-typing-initialized', 'true');
+            el.style.visibility = 'visible'; 
+        }
+    });
+
+
+    const buttons = document.querySelector('.hero-buttons');
+    if (buttons) {
+        buttons.style.opacity = '0';
+        buttons.style.transform = 'translateY(20px)';
+        buttons.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    }
+
+    processNext(0);
+}
+
+function typeWriter(element, callback) {
+    element.classList.add('typing-cursor');
+    const html = element.dataset.originalHtml;
+
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+
+    const nodes = Array.from(tempDiv.childNodes);
+    let currentNodeIndex = 0;
+
+    function typeNode() {
+        if (currentNodeIndex >= nodes.length) {
+            if (callback) callback();
+            return;
+        }
+
+        const node = nodes[currentNodeIndex];
+
+        if (node.nodeType === Node.TEXT_NODE) {
+            const text = node.textContent;
+            let charIndex = 0;
+
+            function typeChar() {
+                if (charIndex < text.length) {
+                    element.innerHTML += text.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeChar, 50); 
+                } else {
+                    currentNodeIndex++;
+                    typeNode();
+                }
+            }
+            typeChar();
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+ 
+            const newElement = document.createElement(node.tagName);
+
+            Array.from(node.attributes).forEach(attr => {
+                newElement.setAttribute(attr.name, attr.value);
+            });
+
+            element.appendChild(newElement);
+
+        
+            const innerText = node.textContent; 
+            let charIndex = 0;
+
+            function typeInnerChar() {
+                if (charIndex < innerText.length) {
+                    newElement.textContent += innerText.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeInnerChar, 50);
+                } else {
+                    currentNodeIndex++;
+                    typeNode();
+                }
+            }
+            typeInnerChar();
+        } else {
+            currentNodeIndex++;
+            typeNode();
+        }
+    }
+
+    typeNode();
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');

@@ -25,7 +25,6 @@ body {
 }
 
 html {
-    /* Remove scroll behavior for single view */
     overflow: hidden;
 }
 
@@ -115,19 +114,37 @@ html {
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     margin-bottom: 0.5rem;
     font-weight: 700;
 }
-
 
 .highlight {
     color: var(--primary-color);
     text-shadow: 0 0 20px var(--primary-glow);
 }
 
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: var(--primary-color);
+    margin-left: 2px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
 .hero-content h2 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     font-weight: 300;
@@ -137,7 +154,7 @@ html {
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto 2.5rem;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
 .hero-buttons {
@@ -184,7 +201,7 @@ html {
 
 
 .section {
-    height: 100vh;
+    height: 100dvh;
     display: none;
     flex-direction: column;
     max-width: 1200px;
@@ -193,6 +210,7 @@ html {
     animation: fadeIn 0.5s ease-in-out;
     scrollbar-width: thin;
     scrollbar-color: var(--primary-color) var(--bg-color);
+    padding-top: 100px;
 }
 
 .section>.container {
@@ -276,8 +294,9 @@ html {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
+    padding-bottom: 2rem;
 }
 
 .skill-card {
@@ -438,7 +457,7 @@ html {
 
 .footer {
     background: #020202;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -480,6 +499,12 @@ html {
     transition: var(--transition);
 }
 
+@media (max-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: block;
@@ -508,6 +533,7 @@ html {
         text-align: center;
         transition: 0.3s;
         border-bottom: 1px solid var(--primary-color);
+        padding: 2rem 0;
     }
 
     .nav-links.active {
@@ -518,25 +544,21 @@ html {
         margin: 16px 0;
     }
 
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content h2 {
-        font-size: 1.5rem;
-    }
-
     .section {
-        padding: 80px 1rem 1rem 1rem;
+        padding: 100px 1rem 1rem 1rem;
     }
 
     .about-text {
         font-size: 1rem;
-        padding: 0 0.5rem;
+        padding: 1rem;
     }
 
     .about-text p {
         margin-bottom: 0.8rem;
+    }
+
+    .contact-links {
+        grid-template-columns: 1fr;
     }
 }
 
