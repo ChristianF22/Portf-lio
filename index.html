@@ -13,21 +13,36 @@
 
     <div id="loading">
         <p class="welcome-text">Bem-vindo ao meu portfólio</p>
-    <span id="loading-percent">0%</span>
-    <div class="loading-bar">
-        <div class="loading-progress"></div>
+        <span id="loading-percent">0%</span>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
     </div>
-  </div>
 
     <header>
         <div class="header-container">
-            <nav>
+            <div class="menu-toggle" id="menuToggle">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+            
+            <nav class="desktop-nav">
                 <div class="select"></div>
                 <a onclick="nextNav(1)">Início</a>
                 <a onclick="nextNav(2)">Sobre mim</a>
                 <a onclick="nextNav(3)">Experiência</a>
                 <a onclick="nextNav(4)">Contatos</a>
             </nav>
+        </div>
+        
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <div class="mobile-menu-content">
+                <a onclick="nextNav(1); closeMobileMenu()">Início</a>
+                <a onclick="nextNav(2); closeMobileMenu()">Sobre mim</a>
+                <a onclick="nextNav(3); closeMobileMenu()">Experiência</a>
+                <a onclick="nextNav(4); closeMobileMenu()">Contatos</a>
+            </div>
         </div>
     </header>
 
@@ -48,45 +63,21 @@
             </section>
             <section id="about">
                 <div class="about-container">
-
-
                     <div class="about-left">
                         <h2>Tecnologias</h2>
                         <br /> 
                         <div class="tecs">
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg" />
-
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-plain-wordmark.svg" />
-
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg" />
-
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg" />
-
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" />
-
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" />
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" />
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
-
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" />
-
-
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" />
-
-
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-plain-wordmark.svg" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" />
                         </div>
                     </div>
                     <div class="line"></div>
@@ -108,76 +99,67 @@
             </section>
             <section id="exp">
                 <div class="exp-container">
-                <div class="career-header">
-                <h1>CARREIRA</h1>
-                <p>
-                    Minha trajetória profissional envolve desenvolvimento de software,
-                    suporte a sistemas corporativos e automação de processos.
-                </p>
-            </div>
-
-            <div class="career-grid">
-
-                <div class="career-card">
-                    <h3>Desenvolvedor de Software Júnior</h3>
-                    <span class="period">2025 • Atual</span>
-
-                    <ul>
-                        <li>
-                                Minhas principais responsabilidades incluem a manutenção da aplicação, 
-                                correção de problemas, implementação de melhorias, realização de testes 
-                                e participação no desenvolvimento de novos projetos 
-                        </li>
-                    </ul>
-
-                    <div class="career-tags">
-                        <span>Java</span>
-                        <span>Spring Boot</span>
-                        <span>Oracle</span>
-                        <span>Angular</span>
+                    <div class="career-header">
+                        <h1 class="h1-index">CARREIRA</h1>
+                        <p>
+                            Minha trajetória profissional envolve desenvolvimento de software,
+                            suporte a sistemas corporativos e automação de processos.
+                        </p>
                     </div>
-                </div>
 
-                <div class="career-card">
-                    <h3>Analista de Sistemas</h3>
-                    <span class="period">2024 • 2025</span>
+                    <div class="career-grid">
+                        <div class="career-card">
+                            <h3>Desenvolvedor de Software Júnior</h3>
+                            <span class="period">2025 • Atual</span>
+                            <ul>
+                                <li>
+                                    Minhas principais responsabilidades incluem a manutenção da aplicação, 
+                                    correção de problemas, implementação de melhorias, realização de testes 
+                                    e participação no desenvolvimento de novos projetos 
+                                </li>
+                            </ul>
+                            <div class="career-tags">
+                                <span>Java</span>
+                                <span>Spring Boot</span>
+                                <span>Oracle</span>
+                                <span>Angular</span>
+                            </div>
+                        </div>
 
-                    <ul>
-                        <li>
-                             Trabalhei com banco de dados Oracle PL/SQL, realizando a criação de usuários, 
-                             configuração de permissões e o desenvolvimento de scripts em PL/SQL para automatização 
-                             de demandas do sistema. Além disso, desenvolvi telas e scripts para facilitar 
-                             a geração de relatórios, permitindo que os usuários obtenham informações com mais autonomia e simplicidade.
-                            
-                        </li>
-                    </ul>
+                        <div class="career-card">
+                            <h3>Analista de Sistemas</h3>
+                            <span class="period">2024 • 2025</span>
+                            <ul>
+                                <li>
+                                    Trabalhei com banco de dados Oracle PL/SQL, realizando a criação de usuários, 
+                                    configuração de permissões e o desenvolvimento de scripts em PL/SQL para automatização 
+                                    de demandas do sistema. Além disso, desenvolvi telas e scripts para facilitar 
+                                    a geração de relatórios, permitindo que os usuários obtenham informações com mais autonomia e simplicidade.
+                                </li>
+                            </ul>
+                            <div class="career-tags">
+                                <span>PL/SQL</span>
+                                <span>Oracle</span>
+                                <span>Relatórios</span>
+                            </div>
+                        </div>
 
-                    <div class="career-tags">
-                        <span>PL/SQL</span>
-                        <span>Oracle</span>
-                        <span>Relatórios</span>
+                        <div class="career-card">
+                            <h3>Analista de Service Desk</h3>
+                            <span class="period">2023 • 2024</span>
+                            <ul>
+                                <li>
+                                    Responsável pelo suporte a sistemas corporativos, incluindo criação e administração de usuários, 
+                                    concessão de permissões e gestão de acessos em plataformas como EBS, Power BI, AccessOne, Gesplan, 
+                                    Autentique, DocuSign, OIC e SYSPDV. Atuação no suporte N1 aos sistemas MV (MVPEP, MVSOUL, MVPACS e Painel de Indicadores). 
+                                    Participação na implantação do módulo de Oncologia no sistema MV, fornecendo suporte técnico e treinamento especializado para médicos.
+                                </li>
+                            </ul>
+                            <div class="career-tags">
+                                <span>Suporte</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="career-card">
-                    <h3>Analista de Service Desk</h3>
-                    <span class="period">2023 • 2024</span>
-
-                    <ul>
-                        <li>
-                            Responsável pelo suporte a sistemas corporativos, incluindo criação e administração de usuários, 
-                            concessão de permissões e gestão de acessos em plataformas como EBS, Power BI, AccessOne, Gesplan, 
-                            Autentique, DocuSign, OIC e SYSPDV. Atuação no suporte N1 aos sistemas MV (MVPEP, MVSOUL, MVPACS e Painel de Indicadores). 
-                            Participação na implantação do módulo de Oncologia no sistema MV, fornecendo suporte técnico e treinamento especializado para médicos.
-                        </li>
-                    </ul>
-
-                    <div class="career-tags">
-                        <span>Suporte</span>
-                    </div>
-                </div>
-
-            </div>
                 </div>
             </section>
             <section id="contact">
