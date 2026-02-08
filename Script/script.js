@@ -15,7 +15,7 @@ window.addEventListener('load', () => {
                 setTimeout(() => {
                     loader.classList.add('loader-hidden');
 
-                    
+
                     setTimeout(() => {
                         startTypingAnimation();
                     }, 500);
@@ -27,7 +27,7 @@ window.addEventListener('load', () => {
                     });
                 }, 200);
             }
-        }, 50);
+        }, 40);
     }
 });
 
@@ -57,7 +57,7 @@ function startTypingAnimation() {
             el.dataset.originalHtml = el.innerHTML;
             el.innerHTML = '';
             el.setAttribute('data-typing-initialized', 'true');
-            el.style.visibility = 'visible'; 
+            el.style.visibility = 'visible';
         }
     });
 
@@ -98,7 +98,7 @@ function typeWriter(element, callback) {
                 if (charIndex < text.length) {
                     element.innerHTML += text.charAt(charIndex);
                     charIndex++;
-                    setTimeout(typeChar, 50); 
+                    setTimeout(typeChar, 50);
                 } else {
                     currentNodeIndex++;
                     typeNode();
@@ -106,7 +106,7 @@ function typeWriter(element, callback) {
             }
             typeChar();
         } else if (node.nodeType === Node.ELEMENT_NODE) {
- 
+
             const newElement = document.createElement(node.tagName);
 
             Array.from(node.attributes).forEach(attr => {
@@ -115,8 +115,8 @@ function typeWriter(element, callback) {
 
             element.appendChild(newElement);
 
-        
-            const innerText = node.textContent; 
+
+            const innerText = node.textContent;
             let charIndex = 0;
 
             function typeInnerChar() {
