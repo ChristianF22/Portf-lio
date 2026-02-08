@@ -1,233 +1,144 @@
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    const progressBar = document.querySelector('.progress-bar');
+    const percentageText = document.querySelector('.loader-percentage');
 
-const selectPositions = {
-    1: { left: "-1.3rem", width: "5rem" },
-    2: { left: "3.6rem", width: "7rem" },
-    3: { left: "10.5rem", width: "8rem" },
-    4: { left: "18rem", width: "7rem" }
-};
+    if (loader && progressBar && percentageText) {
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 1;
+            progressBar.style.width = `${progress}%`;
+            percentageText.textContent = `${progress}%`;
 
-const selectPositionsResponsive = {
-    1: { left: "-1rem", width: "4rem" },
-    2: { left: "3rem", width: "6rem" },
-    3: { left: "9rem", width: "7rem" },
-    4: { left: "16rem", width: "6rem" }
-};
-
-const menuToggle = document.getElementById('menuToggle');
-const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-const body = document.body;
-
-function openMobileMenu() {
-    if (menuToggle && mobileMenuOverlay) {
-        menuToggle.classList.add('active');
-        mobileMenuOverlay.classList.add('active');
-        body.style.overflow = 'hidden';
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    loader.classList.add('loader-hidden');
+                    loader.addEventListener('transitionend', () => {
+                        if (loader.parentNode) {
+                            loader.parentNode.removeChild(loader);
+                        }
+                    });
+                }, 200);
+            }
+        }, 20);
     }
-}
+});
 
-function closeMobileMenu() {
-    if (menuToggle && mobileMenuOverlay) {
-        menuToggle.classList.remove('active');
-        mobileMenuOverlay.classList.remove('active');
-        body.style.overflow = 'auto';
-    }
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
 
-function toggleMobileMenu() {
-    if (mobileMenuOverlay.classList.contains('active')) {
-        closeMobileMenu();
-    } else {
-        openMobileMenu();
-    }
-}
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
 
-function nextNav(type) {
-    const select = document.querySelector(".select");
-    const home = document.querySelector("#home");
-    const about = document.querySelector("#about");
-    const exp = document.querySelector("#exp");
-    const contact = document.querySelector("#contact");
+    document.querySelectorAll('.nav-links li a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
 
-    if (window.innerWidth <= 768) {
-        closeMobileMenu();
-    }
+    const sections = document.querySelectorAll('.hero, .section');
+    const navItems = document.querySelectorAll('.nav-links a');
 
-    let positions;
-    if (window.innerWidth < 768) {
-        positions = selectPositionsResponsive;
-        if (select) {
-            select.style.height = "2.5rem";
-            select.style.display = "none"; 
+    function showSection(sectionId) {
+        sections.forEach(section => {
+            section.classList.remove('active-section');
+        });
+
+        navItems.forEach(item => {
+            item.classList.remove('active');
+        });
+
+        const targetSection = document.querySelector(sectionId);
+        if (targetSection) {
+            targetSection.classList.add('active-section');
         }
-    } else {
-        positions = selectPositions;
-        if (select) {
-            select.style.height = "3rem";
-            select.style.display = "block";
+
+        const activeLink = document.querySelector(`.nav-links a[href="${sectionId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
         }
     }
 
-    home.style.display = "none";
-    about.style.display = "none";
-    exp.style.display = "none";
-    contact.style.display = "none";
-    
-    home.style.opacity = "0%";
-    about.style.opacity = "0%";
-    exp.style.opacity = "0%";
-    contact.style.opacity = "0%";
+    const initialHash = window.location.hash || '#home';
+    showSection(initialHash);
 
-    switch (type) {
-        case 1:
-            if (select && window.innerWidth >= 768) {
-                select.style.left = positions[1].left;
-                select.style.width = positions[1].width;
-            }
-            home.style.display = "flex";
-            setTimeout(() => { home.style.opacity = "100%"; }, 10);
-            break;
-        case 2:
-            if (select && window.innerWidth >= 768) {
-                select.style.left = positions[2].left;
-                select.style.width = positions[2].width;
-            }
-            about.style.display = "flex";
-            setTimeout(() => { about.style.opacity = "100%"; }, 10);
-            break;
-        case 3:
-            if (select && window.innerWidth >= 768) {
-                select.style.left = positions[3].left;
-                select.style.width = positions[3].width;
-            }
-            exp.style.display = "flex";
-            setTimeout(() => { exp.style.opacity = "100%"; }, 10);
-            break;
-        case 4:
-            if (select && window.innerWidth >= 768) {
-                select.style.left = positions[4].left;
-                select.style.width = positions[4].width;
-            }
-            contact.style.display = "flex";
-            setTimeout(() => { contact.style.opacity = "100%"; }, 10);
-            break;
-    }
-}
+    navItems.forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            showSection(targetId);
 
-const loading = document.getElementById('loading');
-const bar = document.querySelector('.loading-progress');
-const percent = document.getElementById('loading-percent');
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
 
-let progress = 0;
+    document.querySelectorAll('.hero-buttons a').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            showSection(this.getAttribute('href'));
+        });
+    });
 
-const interval = setInterval(() => {
-    progress++;
-    bar.style.width = progress + '%';
-    percent.innerText = progress + '%';
+    window.addEventListener('popstate', () => {
+        const hash = window.location.hash || '#home';
+        showSection(hash);
+    });
 
-    if (progress >= 100) {
-        clearInterval(interval);
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button');
+        const originalText = btn.innerText;
+
+        btn.innerText = 'Enviando...';
+        btn.style.opacity = '0.7';
 
         setTimeout(() => {
-            loading.style.opacity = '0';
-            loading.style.transition = 'opacity 0.4s';
+            btn.innerText = 'Mensagem Enviada!';
+            btn.style.backgroundColor = '#4caf50';
+            btn.style.color = '#fff';
+            form.reset();
 
             setTimeout(() => {
-                loading.style.display = 'none';
-                initMenuListeners();
-            }, 400);
-        }, 200);
-    }
-}, 60);
+                btn.innerText = originalText;
+                btn.style.backgroundColor = '';
+                btn.style.opacity = '1';
+                btn.style.color = '';
+            }, 3000);
+        }, 1500);
+    });
 
-function initMenuListeners() {
-    if (menuToggle) {
-        menuToggle.addEventListener('click', toggleMobileMenu);
-    }
-    
-    if (mobileMenuOverlay) {
-        mobileMenuOverlay.addEventListener('click', function(e) {
-            if (e.target === mobileMenuOverlay) {
-                closeMobileMenu();
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             }
         });
-    }
-    
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenuOverlay && mobileMenuOverlay.classList.contains('active')) {
-            closeMobileMenu();
-        }
+    }, observerOptions);
+
+    document.querySelectorAll('.section-title, .about-text, .skill-card, .project-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(el);
     });
-}
 
-window.addEventListener('resize', function() {
-    const select = document.querySelector(".select");
-    const home = document.querySelector("#home");
-    const about = document.querySelector("#about");
-    const exp = document.querySelector("#exp");
-    const contact = document.querySelector("#contact");
-    
-    let currentType = 1;
-    if (about.style.display === "flex") currentType = 2;
-    if (exp.style.display === "flex") currentType = 3;
-    if (contact.style.display === "flex") currentType = 4;
-    
-    let positions;
-    if (window.innerWidth < 768) {
-        positions = selectPositionsResponsive;
-        if (select) {
-            select.style.height = "2.5rem";
-            select.style.display = "none";
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
-        document.querySelector('.header-container').style.padding = "0.8rem 1.5rem 0.8rem 3.5rem";
-    } else {
-        positions = selectPositions;
-        if (select) {
-            select.style.height = "3rem";
-            select.style.display = "block";
-        }
-        document.querySelector('.header-container').style.padding = "clamp(1rem, 3vw, 2rem) clamp(1.5rem, 4vw, 4rem)";
-    }
-    
-    if (select && window.innerWidth >= 768) {
-        select.style.left = positions[currentType].left;
-        select.style.width = positions[currentType].width;
-    }
-});
-
-let touchStartX = 0;
-let touchEndX = 0;
-const swipeThreshold = 50;
-
-document.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    const swipeDistance = touchEndX - touchStartX;
-    const home = document.querySelector("#home");
-    const about = document.querySelector("#about");
-    const exp = document.querySelector("#exp");
-    const contact = document.querySelector("#contact");
-    
-    let currentType = 1;
-    if (about.style.display === "flex") currentType = 2;
-    if (exp.style.display === "flex") currentType = 3;
-    if (contact.style.display === "flex") currentType = 4;
-    
-    if (swipeDistance < -swipeThreshold && currentType < 4) {
-        nextNav(currentType + 1);
-    }
-    else if (swipeDistance > swipeThreshold && currentType > 1) {
-        nextNav(currentType - 1);
-    }
-}
-
-window.addEventListener('load', function() {
-    window.dispatchEvent(new Event('resize'));
-    initMenuListeners();
+    `;
+    document.head.appendChild(style);
 });

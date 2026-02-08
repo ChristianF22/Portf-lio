@@ -4,171 +4,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./Style/style.css"/>
+    <title>Christian | Fullstack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./Style/style.css">
     <link rel="icon" type="image/png" href="./img/logo2.png">
-    <title>Christian | FullStack Developer</title>
+    <meta name="description" content="Portfólio de Christian, Desenvolvedor Fullstack">
 </head>
 
 <body>
-
-    <div id="loading">
-        <p class="welcome-text">Bem-vindo ao meu portfólio</p>
-        <span id="loading-percent">0%</span>
-        <div class="loading-bar">
-            <div class="loading-progress"></div>
+    <div id="loader">
+        <h1 class="loader-welcome">Bem-vindo ao meu portfólio</h1>
+        <div class="progress-loader">
+            <div class="progress-bar"></div>
         </div>
+        <div class="loader-text">Carregando... <span class="loader-percentage">0%</span></div>
     </div>
-
-    <header>
-        <div class="header-container">
-            <div class="menu-toggle" id="menuToggle">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#home" class="logo">
+                <img src="./img/logo2.png" alt="Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experiência</a></li>
+                <li><a href="#education">Formação</a></li>
+                <li><a href="#contact" class="btn-contact">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-            
-            <nav class="desktop-nav">
-                <div class="select"></div>
-                <a onclick="nextNav(1)">Início</a>
-                <a onclick="nextNav(2)">Sobre mim</a>
-                <a onclick="nextNav(3)">Experiência</a>
-                <a onclick="nextNav(4)">Contatos</a>
-            </nav>
-        </div>
-        
-        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-            <div class="mobile-menu-content">
-                <a onclick="nextNav(1); closeMobileMenu()">Início</a>
-                <a onclick="nextNav(2); closeMobileMenu()">Sobre mim</a>
-                <a onclick="nextNav(3); closeMobileMenu()">Experiência</a>
-                <a onclick="nextNav(4); closeMobileMenu()">Contatos</a>
-            </div>
-        </div>
+        </nav>
     </header>
 
     <main>
-        <div class="main-container">
-            <section id="home">
-                <div class="home-container">
-                    <div class="left">
-                        <img src="./img/logo2.png" />
-                    </div>
-
-                    <div class="right">
-                        <h3>Oi, eu sou o Christian!</h3>
-                        <h1>DESENVOLVEDOR</h1>
-                        <h2>Fullstack</h2>
-                    </div>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="animate-text">Olá, sou <span class="highlight">Christian!</span></h1>
+                <h2 class="animate-text delay-1">Fullstack Developer</h2>
+                <p class="animate-text delay-2">Transformando ideias em experiências digitais modernas e robustas.</p>
+                <div class="hero-buttons animate-text delay-3">
                 </div>
-            </section>
-            <section id="about">
-                <div class="about-container">
-                    <div class="about-left">
-                        <h2>Tecnologias</h2>
-                        <br /> 
-                        <div class="tecs">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg" />
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-plain-wordmark.svg" />
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg" />
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg" />
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" />
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" />
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" />
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" />
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" />
-                        </div>
-                    </div>
-                    <div class="line"></div>
-                    <div class="about-right">
-                        <h2>Sobre mim</h2>
-                        <br />
-                        <p>
-                            Formado em Análise e Desenvolvimento de Sistemas e atuo como Desenvolvedor
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Formado em Análise e Desenvolvimento de Sistemas e atuo como Desenvolvedor
                             de Software Júnior. Sou proativo, comunicativo e colaborativo, com foco
                             em desenvolver soluções eficientes e aprimorar continuamente minhas habilidades
                             técnicas. Possuo experiência em Java, Spring Boot, Angular, Oracle PL/SQL e JSF.
                             Minha trajetória inclui atuação como Analista de Service Desk e Analista de Sistemas,
                             com destaque em suporte a sistemas corporativos, administração de usuários, automação
                             de processos em PL/SQL e criação de relatórios personalizados. Em agosto de 2025,
-                            iniciei minha pós-graduação em Engenharia de Software.
-                        </p>
+                            iniciei minha pós-graduação em Engenharia de Software.</p>
                     </div>
                 </div>
-            </section>
-            <section id="exp">
-                <div class="exp-container">
-                    <div class="career-header">
-                        <h1 class="h1-index">CARREIRA</h1>
-                        <p>
-                            Minha trajetória profissional envolve desenvolvimento de software,
-                            suporte a sistemas corporativos e automação de processos.
-                        </p>
-                    </div>
+            </div>
+        </section>
 
-                    <div class="career-grid">
-                        <div class="career-card">
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Minhas Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Backend</h3>
+                        <div class="skill-icons">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg"
+                                title="Java" alt="Java" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg"
+                                title="Spring Boot" alt="Spring Boot" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg"
+                                title="Node.js" alt="Node.js" />
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Frontend</h3>
+                        <div class="skill-icons">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg"
+                                title="HTML5" alt="HTML5" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg"
+                                title="CSS3" alt="CSS3" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                                title="JavaScript" alt="JavaScript" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+                                title="TypeScript" alt="TypeScript" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-plain-wordmark.svg"
+                                title="Angular" alt="Angular" />
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Database & DevOps</h3>
+                        <div class="skill-icons">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg"
+                                title="Oracle" alt="Oracle" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg"
+                                title="Docker" alt="Docker" />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg"
+                                title="Git" alt="Git" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title">Experiência Profissional</h2>
+                <div class="experience-timeline">
+                    <article class="experience-card">
+                        <div class="experience-header">
                             <h3>Desenvolvedor de Software Júnior</h3>
-                            <span class="period">2025 • Atual</span>
-                            <ul>
-                                <li>
-                                    Minhas principais responsabilidades incluem a manutenção da aplicação, 
-                                    correção de problemas, implementação de melhorias, realização de testes 
-                                    e participação no desenvolvimento de novos projetos 
-                                </li>
-                            </ul>
-                            <div class="career-tags">
-                                <span>Java</span>
-                                <span>Spring Boot</span>
-                                <span>Oracle</span>
-                                <span>Angular</span>
-                            </div>
+                            <span class="date">2025 • Atual</span>
                         </div>
+                        <ul>
+                            <li>
+                                Minhas principais responsabilidades incluem a manutenção da aplicação,
+                                correção de problemas, implementação de melhorias, realização de testes
+                                e participação no desenvolvimento de novos projetos.
+                            </li>
+                        </ul>
+                        <div class="tags">
+                            <span>Java</span>
+                            <span>Spring Boot</span>
+                            <span>Oracle</span>
+                            <span>Angular</span>
+                        </div>
+                    </article>
 
-                        <div class="career-card">
+                    <article class="experience-card">
+                        <div class="experience-header">
                             <h3>Analista de Sistemas</h3>
-                            <span class="period">2024 • 2025</span>
-                            <ul>
-                                <li>
-                                    Trabalhei com banco de dados Oracle PL/SQL, realizando a criação de usuários, 
-                                    configuração de permissões e o desenvolvimento de scripts em PL/SQL para automatização 
-                                    de demandas do sistema. Além disso, desenvolvi telas e scripts para facilitar 
-                                    a geração de relatórios, permitindo que os usuários obtenham informações com mais autonomia e simplicidade.
-                                </li>
-                            </ul>
-                            <div class="career-tags">
-                                <span>PL/SQL</span>
-                                <span>Oracle</span>
-                                <span>Relatórios</span>
-                            </div>
+                            <span class="date">2024 • 2025</span>
                         </div>
+                        <ul>
+                            <li>
+                                Trabalhei com banco de dados Oracle PL/SQL, realizando a criação de usuários,
+                                configuração de permissões e o desenvolvimento de scripts em PL/SQL para automatização
+                                de demandas do sistema. Além disso, desenvolvi telas e scripts para facilitar
+                                a geração de relatórios, permitindo que os usuários obtenham informações com mais
+                                autonomia e simplicidade.
+                            </li>
+                        </ul>
+                        <div class="tags">
+                            <span>PL/SQL</span>
+                            <span>Oracle</span>
+                            <span>Relatórios</span>
+                        </div>
+                    </article>
 
-                        <div class="career-card">
+                    <article class="experience-card">
+                        <div class="experience-header">
                             <h3>Analista de Service Desk</h3>
-                            <span class="period">2023 • 2024</span>
-                            <ul>
-                                <li>
-                                    Responsável pelo suporte a sistemas corporativos, incluindo criação e administração de usuários, 
-                                    concessão de permissões e gestão de acessos em plataformas como EBS, Power BI, AccessOne, Gesplan, 
-                                    Autentique, DocuSign, OIC e SYSPDV. Atuação no suporte N1 aos sistemas MV (MVPEP, MVSOUL, MVPACS e Painel de Indicadores). 
-                                    Participação na implantação do módulo de Oncologia no sistema MV, fornecendo suporte técnico e treinamento especializado para médicos.
-                                </li>
-                            </ul>
-                            <div class="career-tags">
-                                <span>Suporte</span>
+                            <span class="date">2023 • 2024</span>
+                        </div>
+                        <ul>
+                            <li>
+                                Responsável pelo suporte a sistemas corporativos, incluindo criação e administração de
+                                usuários,
+                                concessão de permissões e gestão de acessos em plataformas como EBS, Power BI,
+                                AccessOne, Gesplan,
+                                Autentique, DocuSign, OIC e SYSPDV. Atuação no suporte N1 aos sistemas MV (MVPEP,
+                                MVSOUL, MVPACS e Painel de Indicadores).
+                                Participação na implantação do módulo de Oncologia no sistema MV, fornecendo suporte
+                                técnico e treinamento especializado para médicos.
+                            </li>
+                        </ul>
+                        <div class="tags">
+                            <span>Suporte</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title">Formação Acadêmica</h2>
+                <div class="experience-timeline">
+                    <article class="experience-card">
+                        <div class="experience-header">
+                            <h3>Pós-graduação em Engenharia de Software, Computação em Nuvem e DevOps</h3>
+                            <span class="date">Jul 2027 (Previsão)</span>
+                        </div>
+                        <h4>Unifametro</h4>
+                        <p>Especialização na análise, desenvolvimento e implementação de soluções em gestão ágil de
+                            projetos de
+                            software e inovações tecnológicas. O programa abrange práticas avançadas em
+                            Engenharia de Software, DevOps e Computação em Nuvem, com ênfase na
+                            otimização de processos, aumento da eficiência operacional e entrega de
+                            soluções de alto desempenho para organizações e sociedade.</p>
+                    </article>
+
+                    <article class="experience-card">
+                        <div class="experience-header">
+                            <h3>Análise e Desenvolvimento de Sistemas</h3>
+                            <span class="date">Concluído em 2024</span>
+                        </div>
+                        <h4>Unifametro</h4>
+                        <p>Formação focada no ciclo completo de desenvolvimento de software, desde a engenharia de
+                            requisitos até
+                            a implementação e testes. O curso proporcionou uma base sólida em lógica de programação,
+                            banco de dados (SQL e NoSQL), arquitetura de sistemas e metodologias ágeis (Scrum/Kanban),
+                            preparando para a criação de soluções tecnológicas eficientes e escaláveis.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Entre em Contato</h2>
+                <div class="contact-content">
+                    <p class="contact-text">Estou sempre aberto a novas oportunidades e parcerias. Sinta-se à vontade
+                        para entrar em contato comigo através dos canais abaixo:</p>
+
+                    <div class="contact-links">
+                        <a href="mailto:christianfdrocha@gmail.com" class="contact-item">
+                            <span class="icon">📧</span>
+                            <h3>Email</h3>
+                            <p>christianfdrocha@gmail.com</p>
+                        </a>
+
+                        <div class="contact-item social-item">
+                            <span class="icon">🌐</span>
+                            <h3>Redes Sociais</h3>
+                            <div class="social-buttons">
+                                <a href="https://www.linkedin.com/in/christian-fonseca-1a6493231/" target="_blank"
+                                    class="social-btn">LinkedIn</a>
+                                <a href="https://github.com/ChristianF22" target="_blank" class="social-btn">GitHub</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <section id="contact">
-                <div class="contact-container">
-                    <h2>Contatos</h2>
-                </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
+
+
 
     <script src="./Script/script.js"></script>
 </body>
