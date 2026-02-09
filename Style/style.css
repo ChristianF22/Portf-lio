@@ -459,15 +459,38 @@ html {
 
 
 .footer {
-    background: #020202;
-    padding: 2rem 1rem;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: #050505;
+    padding: 2rem 5%;
+    border-top: 1px solid rgba(255, 140, 0, 0.1);
+    margin-top: auto;
 }
 
-.footer p {
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-logo img {
+    height: 40px;
+    width: auto;
+    filter: drop-shadow(0 0 5px var(--primary-glow));
+}
+
+.footer-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.footer-text p {
     color: var(--text-secondary);
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: left;
+    line-height: 1.4;
 }
 
 .social-links {
@@ -562,6 +585,16 @@ html {
 
     .contact-links {
         grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .footer-text p {
+        text-align: center;
     }
 }
 
