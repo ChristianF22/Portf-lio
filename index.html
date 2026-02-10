@@ -27,12 +27,12 @@
                 <img src="./img/logo2.png" alt="Logo" class="logo-image">
             </a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experiência</a></li>
-                <li><a href="#education">Formação</a></li>
-                <li><a href="#contact" class="btn-contact">Contato</a></li>
+                <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" data-i18n="nav.about">Sobre</a></li>
+                <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#experience" data-i18n="nav.experience">Experiência</a></li>
+                <li><a href="#education" data-i18n="nav.education">Formação</a></li>
+                <li><a href="#contact" class="btn-contact" data-i18n="nav.contact">Contato</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -45,9 +45,11 @@
     <main>
         <section id="home" class="hero">
             <div class="hero-content">
-                <h1 class="animate-text">Olá, sou <span class="highlight">Christian!</span></h1>
-                <h2 class="animate-text delay-1">Fullstack Developer</h2>
-                <p class="animate-text delay-2">Transformando ideias em experiências digitais modernas e robustas.</p>
+                <h1 class="animate-text"><span data-i18n="hero.greeting">Olá, sou o</span> <span
+                        class="highlight">Christian!</span></h1>
+                <h2 class="animate-text delay-1" data-i18n="hero.role">Desenvolvedor Fullstack</h2>
+                <p class="animate-text delay-2" data-i18n="hero.description">Transformando ideias em experiências
+                    digitais modernas e robustas.</p>
                 <div class="hero-buttons animate-text delay-3">
                 </div>
             </div>
@@ -55,10 +57,11 @@
 
         <section id="about" class="section">
             <div class="container">
-                <h2 class="section-title">Sobre Mim</h2>
+                <h2 class="section-title" data-i18n="about.title">Sobre Mim</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>Formado em Análise e Desenvolvimento de Sistemas e atuo como Desenvolvedor
+                        <p data-i18n="about.description">Formado em Análise e Desenvolvimento de Sistemas e atuo como
+                            Desenvolvedor
                             de Software Júnior. Sou proativo, comunicativo e colaborativo, com foco
                             em desenvolver soluções eficientes e aprimorar continuamente minhas habilidades
                             técnicas. Possuo experiência em Java, Spring Boot, Angular, Oracle PL/SQL e JSF.
@@ -73,10 +76,10 @@
 
         <section id="skills" class="section">
             <div class="container">
-                <h2 class="section-title">Minhas Skills</h2>
+                <h2 class="section-title" data-i18n="skills.title">Minhas Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-card">
-                        <h3>Backend</h3>
+                        <h3 data-i18n="skills.backend">Backend</h3>
                         <div class="skill-icons">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg"
                                 title="Java" alt="Java" />
@@ -87,7 +90,7 @@
                         </div>
                     </div>
                     <div class="skill-card">
-                        <h3>Frontend</h3>
+                        <h3 data-i18n="skills.frontend">Frontend</h3>
                         <div class="skill-icons">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg"
                                 title="HTML5" alt="HTML5" />
@@ -118,18 +121,20 @@
 
         <section id="experience" class="section">
             <div class="container">
-                <h2 class="section-title">Experiência Profissional</h2>
+                <h2 class="section-title" data-i18n="experience.title">Experiência Profissional</h2>
                 <div class="experience-timeline">
                     <article class="experience-card">
                         <div class="experience-header">
-                            <h3>Desenvolvedor de Software Júnior</h3>
-                            <span class="date">2025 • Atual</span>
+                            <h3 data-i18n="experience.job1.title">Desenvolvedor de Software Júnior</h3>
+                            <span class="date" data-i18n="experience.job1.date">2025 • Atual</span>
                         </div>
+                        <h4>Unimed Fortaleza</h4>
                         <ul>
                             <li>
-                                Minhas principais responsabilidades incluem a manutenção da aplicação,
-                                correção de problemas, implementação de melhorias, realização de testes
-                                e participação no desenvolvimento de novos projetos.
+                                <span data-i18n="experience.job1.desc">Minhas principais responsabilidades incluem a
+                                    manutenção da aplicação,
+                                    correção de problemas, implementação de melhorias, realização de testes
+                                    e participação no desenvolvimento de novos projetos.</span>
                             </li>
                         </ul>
                         <div class="tags">
@@ -142,16 +147,19 @@
 
                     <article class="experience-card">
                         <div class="experience-header">
-                            <h3>Analista de Sistemas</h3>
-                            <span class="date">2024 • 2025</span>
+                            <h3 data-i18n="experience.job2.title">Analista de Sistemas</h3>
+                            <span class="date" data-i18n="experience.job2.date">2024 • 2025</span>
                         </div>
+                        <h4>Unimed Fortaleza</h4>
                         <ul>
                             <li>
-                                Trabalhei com banco de dados Oracle PL/SQL, realizando a criação de usuários,
-                                configuração de permissões e o desenvolvimento de scripts em PL/SQL para automatização
-                                de demandas do sistema. Além disso, desenvolvi telas e scripts para facilitar
-                                a geração de relatórios, permitindo que os usuários obtenham informações com mais
-                                autonomia e simplicidade.
+                                <span data-i18n="experience.job2.desc">Trabalhei com banco de dados Oracle PL/SQL,
+                                    realizando a criação de usuários,
+                                    configuração de permissões e o desenvolvimento de scripts em PL/SQL para
+                                    automatização
+                                    de demandas do sistema. Além disso, desenvolvi telas e scripts para facilitar
+                                    a geração de relatórios, permitindo que os usuários obtenham informações com mais
+                                    autonomia e simplicidade.</span>
                             </li>
                         </ul>
                         <div class="tags">
@@ -163,19 +171,21 @@
 
                     <article class="experience-card">
                         <div class="experience-header">
-                            <h3>Analista de Service Desk</h3>
-                            <span class="date">2023 • 2024</span>
+                            <h3 data-i18n="experience.job3.title">Analista de Service Desk</h3>
+                            <span class="date" data-i18n="experience.job3.date">2023 • 2024</span>
                         </div>
+                        <h4>Unimed Fortaleza</h4>
                         <ul>
                             <li>
-                                Responsável pelo suporte a sistemas corporativos, incluindo criação e administração de
-                                usuários,
-                                concessão de permissões e gestão de acessos em plataformas como EBS, Power BI,
-                                AccessOne, Gesplan,
-                                Autentique, DocuSign, OIC e SYSPDV. Atuação no suporte N1 aos sistemas MV (MVPEP,
-                                MVSOUL, MVPACS e Painel de Indicadores).
-                                Participação na implantação do módulo de Oncologia no sistema MV, fornecendo suporte
-                                técnico e treinamento especializado para médicos.
+                                <span data-i18n="experience.job3.desc">Responsável pelo suporte a sistemas corporativos,
+                                    incluindo criação e administração de
+                                    usuários,
+                                    concessão de permissões e gestão de acessos em plataformas como EBS, Power BI,
+                                    AccessOne, Gesplan,
+                                    Autentique, DocuSign, OIC e SYSPDV. Atuação no suporte N1 aos sistemas MV (MVPEP,
+                                    MVSOUL, MVPACS e Painel de Indicadores).
+                                    Participação na implantação do módulo de Oncologia no sistema MV, fornecendo suporte
+                                    técnico e treinamento especializado para médicos.</span>
                             </li>
                         </ul>
                         <div class="tags">
@@ -188,15 +198,17 @@
 
         <section id="education" class="section">
             <div class="container">
-                <h2 class="section-title">Formação Acadêmica</h2>
+                <h2 class="section-title" data-i18n="education.title">Formação Acadêmica</h2>
                 <div class="experience-timeline">
                     <article class="experience-card">
                         <div class="experience-header">
-                            <h3>Pós-graduação em Engenharia de Software, Computação em Nuvem e DevOps</h3>
-                            <span class="date">Jul 2027 (Previsão)</span>
+                            <h3 data-i18n="education.course1.title">Pós-graduação em Engenharia de Software, Computação
+                                em Nuvem e DevOps</h3>
+                            <span class="date" data-i18n="education.course1.date">Jul 2027 (Previsão)</span>
                         </div>
                         <h4>Unifametro</h4>
-                        <p>Especialização na análise, desenvolvimento e implementação de soluções em gestão ágil de
+                        <p data-i18n="education.course1.desc">Especialização na análise, desenvolvimento e implementação
+                            de soluções em gestão ágil de
                             projetos de
                             software e inovações tecnológicas. O programa abrange práticas avançadas em
                             Engenharia de Software, DevOps e Computação em Nuvem, com ênfase na
@@ -206,11 +218,12 @@
 
                     <article class="experience-card">
                         <div class="experience-header">
-                            <h3>Análise e Desenvolvimento de Sistemas</h3>
-                            <span class="date">Concluído em 2024</span>
+                            <h3 data-i18n="education.course2.title">Análise e Desenvolvimento de Sistemas</h3>
+                            <span class="date" data-i18n="education.course2.date">Concluído em 2024</span>
                         </div>
                         <h4>Unifametro</h4>
-                        <p>Formação focada no ciclo completo de desenvolvimento de software, desde a engenharia de
+                        <p data-i18n="education.course2.desc">Formação focada no ciclo completo de desenvolvimento de
+                            software, desde a engenharia de
                             requisitos até
                             a implementação e testes. O curso proporcionou uma base sólida em lógica de programação,
                             banco de dados (SQL e NoSQL), arquitetura de sistemas e metodologias ágeis (Scrum/Kanban),
@@ -222,9 +235,10 @@
 
         <section id="contact" class="section">
             <div class="container">
-                <h2 class="section-title">Entre em Contato</h2>
+                <h2 class="section-title" data-i18n="contact.title">Entre em Contato</h2>
                 <div class="contact-content">
-                    <p class="contact-text">Estou sempre aberto a novas oportunidades e parcerias. Sinta-se à vontade
+                    <p class="contact-text" data-i18n="contact.text">Estou sempre aberto a novas oportunidades e
+                        parcerias. Sinta-se à vontade
                         para entrar em contato comigo através dos canais abaixo:</p>
 
                     <div class="contact-links">
@@ -236,7 +250,7 @@
 
                         <div class="contact-item social-item">
                             <span class="icon">🌐</span>
-                            <h3>Redes Sociais</h3>
+                            <h3 data-i18n="contact.socials">Redes Sociais</h3>
                             <div class="social-buttons">
                                 <a href="https://www.linkedin.com/in/christian-fonseca-1a6493231/" target="_blank"
                                     class="social-btn">LinkedIn</a>
@@ -253,16 +267,26 @@
                     </div>
                     <div class="footer-text">
                         <p>&copy; 2025 Christian Fonseca</p>
-                        <p>Desenvolvido por Christian Fonseca</p>
+                        <p data-i18n="footer.developed">Desenvolvido por Christian Fonseca</p>
                     </div>
                 </div>
             </footer>
         </section>
+        <div class="floating-language-selector">
+            <div class="lang-option" data-lang="pt" data-tooltip="Português">
+                <img src="./img/Brasil.png" >
+            </div>
+            <div class="lang-option" data-lang="en" data-tooltip="English">
+                 <img src="./img/Inglaterra.png" >
+            </div>
+            <div class="lang-option" data-lang="es" data-tooltip="Espanhol">
+                 <img src="./img/Espanhol.png" >
+            </div>
+            <div class="lang-toggle-btn">
+                <span class="current-lang-icon">🌐</span>
+            </div>
+        </div>
     </main>
-
-
-
-
 
     <script src="./Script/script.js"></script>
 </body>
